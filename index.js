@@ -53,7 +53,23 @@ app.post('/persons', (request, response) => {
 })
 
 app.get('/', (req, res) => {
-    res.send('<h1>Hello World!</h1>')
+    res.send('<h1>hallo</h1>')
+})
+
+app.get('/info', (req, res) => {
+
+    const personAmount = persons.length
+
+    const now = new Date()
+
+
+    const info = `
+    <div>
+        <p>puhelinluettelossa ` + personAmount + ` henkilön tiedot</p>
+        <p>` + now + `</p>
+    </div>`
+    res.send(info)
+    
 })
 
 app.get('/api/persons', (req, res) => {
