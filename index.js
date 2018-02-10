@@ -59,10 +59,7 @@ app.get('/', (req, res) => {
 app.get('/info', (req, res) => {
 
     const personAmount = persons.length
-
     const now = new Date()
-
-
     const info = `
     <div>
         <p>puhelinluettelossa ` + personAmount + ` henkilön tiedot</p>
@@ -76,12 +73,12 @@ app.get('/api/persons', (req, res) => {
     res.json(persons)
 })
 
-app.get('/notes/:id', (request, response) => {
+app.get('/api/persons/:id', (request, response) => {
     const id = Number(request.params.id)
-    const note = notes.find(note => note.id === id)
+    const person = persons.find(note => note.id === id)
 
-    if (note) {
-        response.json(note)
+    if (person) {
+        response.json(person)
     } else {
         response.status(404).end()
     }
