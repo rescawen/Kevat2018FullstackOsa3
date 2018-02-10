@@ -29,27 +29,30 @@ let persons = [
 ]
 
 const generateId = () => {
-    const maxId = notes.length > 0 ? notes.map(n => n.id).sort().reverse()[0] : 1
+    const maxId = persons.length > 0 ? persons.map(n => n.id).sort().reverse()[0] : 1
     return maxId + 1
 }
 
-app.post('/persons', (request, response) => {
+const generateNumber = () => {
+    return Math.floor(100000 + Math.random() * 900000);
+}
+
+app.post('/api/persons', (request, response) => {
     const body = request.body
 
-    if (body.content === undefined) {
-        return response.status(400).json({ error: 'content missing' })
+    if (body.name === undefined) {
+        return response.status(400).json({ error: 'name missing' })
     }
 
-    const note = {
-        content: body.content,
-        important: body.important || false,
-        date: new Date(),
+    const person = {
+        name: body.name,
+        number: generateNumber(),
         id: generateId()
     }
 
-    notes = notes.concat(note)
+    persons = persons.concat(person)
 
-    response.json(note)
+    response.json(person)
 })
 
 app.get('/', (req, res) => {
