@@ -33,10 +33,6 @@ const generateId = () => {
     return maxId + 1
 }
 
-const generateNumber = () => {
-    return Math.floor(100000 + Math.random() * 900000);
-}
-
 app.post('/api/persons', (request, response) => {
     const body = request.body
 
@@ -46,7 +42,7 @@ app.post('/api/persons', (request, response) => {
 
     const person = {
         name: body.name,
-        number: generateNumber(),
+        number: body.number,
         id: generateId()
     }
 

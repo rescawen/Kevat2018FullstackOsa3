@@ -3,4 +3,5 @@ content-type: application/json
 
 {
     "name": "sample",
+    "number": "040-123456"
 }
