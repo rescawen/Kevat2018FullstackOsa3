@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 // korvaa url oman tietokantasi urlilla. ethän laita salasanaa Gothubiin!
-const url = 'mongodb://wenlei:123456@ds233238.mlab.com:33238/fullstackdb'
+const url = 'mongodb://wenlei:salanasa@ds233238.mlab.com:33238/fullstackdb'
 
 mongoose.connect(url)
 
